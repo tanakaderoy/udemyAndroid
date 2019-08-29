@@ -1,0 +1,77 @@
+package com.tanaka.downloadingweb;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.StrictMode;
+import android.util.Log;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new
+                    StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
+        DownloadTask task = new DownloadTask();
+        String result = null;
+        try {
+            result  = task.execute("https://www.zappycode.com").get();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+    Log.i("res", result);
+
+
+
+    }
+
+    public class DownloadTask extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... urls) {
+            String result = "";
+            URL url;
+            HttpsURLConnection urlConnection = null;
+            try {
+                url = new URL(urls[0]);
+                urlConnection = (HttpsURLConnection) url.openConnection();
+                InputStream inputStream = urlConnection.getInputStream();
+                InputStreamReader reader = new InputStreamReader(inputStream);
+                int data = reader.read();
+
+                while(data != -1) {
+                    char current = (char)data;
+                    result += current;
+
+
+                    data = reader.read();
+                }
+                return result;
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "Failed";
+            }
+
+
+        }
+    }
+}

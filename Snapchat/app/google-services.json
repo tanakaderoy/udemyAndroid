@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "637493408450",
+    "firebase_url": "https://snapchat-d264b.firebaseio.com",
+    "project_id": "snapchat-d264b",
+    "storage_bucket": "snapchat-d264b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637493408450:android:8c2d35237f8e67b4",
+        "android_client_info": {
+          "package_name": "com.tanaka.snapchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637493408450-1rge5939c6pcqslk4liq074u998qme13.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tanaka.snapchat",
+            "certificate_hash": "0e0797fbd5afa5dc1b8599542b085021dc9831ba"
+          }
+        },
+        {
+          "client_id": "637493408450-j4ae38vhnn3pgq07pfeoo5rlq8fm806i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpzoS72mVFuFTlcqGSVea1nbXOeeXrTPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637493408450-j4ae38vhnn3pgq07pfeoo5rlq8fm806i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
